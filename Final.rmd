@@ -24,6 +24,9 @@ mutate(across(where(is.character), as.factor))
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
+# Methods
+Looking at the data collected, this will be categorical explained by categorical statistical problem, we will create separate data variables for each group to separate and test each of them. We will use the candP helper file to use R studios built in bar charts to display data graphically. W will also use xtabs to find the percentages relevant to the data. In this case we are only comparing two types of data and therefore we do not need to use any loops to measure multiple variables in the Fisher test or run a FisherXY.
+
 ## Males
 
 
