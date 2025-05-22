@@ -18,7 +18,13 @@ FinalDat <-read.csv(file="finalSumr2024.csv",header=TRUE)
 FinalData <- FinalDat  %>% select(-one_of("X"))
 FinalData <- FinalData %>%
 mutate(across(where(is.character), as.factor))
+
+male = filter(FinalData, sex =="M")
+female = filter(FinalData, sex =="F")
+lgbtq = filter(FinalData, LGBTQ =="gay")
+drugUser = filter(FinalData, DrugUser =="yes")
 ```
+
 
 # Introduction
 
@@ -29,7 +35,17 @@ Looking at the data collected, this will be categorical explained by categorical
 
 ## Males
 
+### Graphical Descriptive Results
 
+```{r}
+barchartGC(~infected + treatment,data=male)
+barchartGC(~infected + treatment,data=male, type="percent")
+```
+  
+The bar chart above shows the graphical outcomes for males, based on the collected data. It compares the rates of contracting Covid-19 as compared to vaccination status. The left shows people who contracted Covid-19 and the right shows men who have not.
+
+This clearly shows that more than twice the percentage of people who are in the placebo group contracted Covid where people who did not contract Covid are very closely related.
+  
 ## Females
 
 
