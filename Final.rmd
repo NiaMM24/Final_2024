@@ -45,6 +45,16 @@ barchartGC(~infected + treatment,data=male, type="percent")
 The bar chart above shows the graphical outcomes for males, based on the collected data. It compares the rates of contracting Covid-19 as compared to vaccination status. The left shows people who contracted Covid-19 and the right shows men who have not.
 
 This clearly shows that more than twice the percentage of people who are in the placebo group contracted Covid where people who did not contract Covid are very closely related.
+
+### Numerical Descriptive Results
+
+```{r}
+tableMale <- xtabs(~infected + treatment, data=male)
+rowPerc(tableMale)
+colPerc(tableMale)
+```
+
+The set of data illustrates a twofold difference in individuals who received the vaccinations and encountered Covid-19. The placebo group contracted Covid approximately 74% of the time where the vaccinated group contracted Covid 26% of the time. However, there was no significant contrast among those who received vaccinations and were deemed "OK." We can see that the vaccine is generally effective in this testing scenario.
   
 ## Females
 
