@@ -84,6 +84,21 @@ maleFisher
 
    The Chi Squared test shows that the p-value for males is 0.0000000000001098. This is substantially smaller than the general use point of 0.05. Consequently, the very small number indicates that there is a difference in the data. The Fisher's Exact test yielded a p-value of 0.00000000000004631, signifying a significant difference in the occurrence of Covid-19 in the data. This all shows that the odds a unvaxinated man getting Covid are 2.2 times higher than a man with the vaccine contracting Covid.
 
+
+
+```{r}
+effect <- maleFisher$p.value/(maleFisher$p.value +1)
+effectivenessmale = maleFisher$estimate/(maleFisher$estimate +1)*100
+print(effectivenessmale)
+```
+The dds ratio is 74. 
+
+```{r}
+low=(maleFisher$conf.int[1]/(maleFisher$conf.int[1] +1))*100
+hi=(maleFisher$conf.int[2]/(maleFisher$conf.int[2] +1))*100
+options(digits=2)
+```
+
 ### Confidence Interval
 
 ```{r}
@@ -95,6 +110,11 @@ cat("\n","Condifence interval for Males: ",maleLow," to ",maleHigh)
 ```
 
 The confidence interval is >50% with a normal vaccine threshold of >60%. This confidence interval is more than adequate to show that this is a good vaccine for this group.
+
+## Effectiveness Confidence Interval `r low`  to `r hi`
+
+The odds ratio essentially shows how effective the vaccine is. The odds ratio for the males is around 73.8, with an effectiveness confidence interval of low being  68.85-78.32% hi, meaning that the vaccine is effective in protecting males from getting covid-19.
+
 
 ## Females
 
