@@ -202,6 +202,31 @@ colPerc(table1)
 
   The numerical results for the gays shows the percentages of gays who got covid while taking the vaccine and gays who got covid while taking the placebo. It shows that 80% of the gays who got covid took the placebo. Whereas 20% of the gays who got covid took the vaccine. More gays who took the vaccine got covid. This comes to show that the vaccine is ineffective towards the gays at preventing the contraction of covid-19.
   
+### Inferential Descriptive Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+lgbtqfish <- fisher.test(table1)
+lgbtqfish
+```
+
+ A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 7e-07, which is a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.
+The null hypothesis is rejected in favor of the alternative hypothesis, meaning that the vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as gay.
+	The odds ratio above came out to be 4.3, meaning that those gays that got covid while taking the vaccine were more likely to contract covid than those who took the placebo and got covid. The odds of getting covid-19 while taking the vaccine is 11.3, meaning there is a big chance at contracting covid while taking the vaccine for the gays.
+	
+```{r}
+effect <- lgbtqfish$p.value/(lgbtqfish$p.value +1)
+effectivenessgay = lgbtqfish$estimate/(lgbtqfish$estimate +1)*100
+print(effectivenessgay)
+```
+
+```{r}
+low=(lgbtqfish$conf.int[1]/(lgbtqfish$conf.int[1] +1))*100
+hi=(lgbtqfish$conf.int[2]/(lgbtqfish$conf.int[2] +1))*100
+options(digits=2)
+```
+  
 ## Druggies
 
 
