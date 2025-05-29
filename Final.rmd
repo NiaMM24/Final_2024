@@ -143,6 +143,29 @@ colPerc(table1)
 ```
 The numerical results for the females shows the percentages of females who got covid while taking the vaccine and males who got covid while taking the placebo. It shows that around 65% of the females who got covid took the placebo. Whereas only 35% of females who got covid took the vaccine. This comes to show that the vaccine is effective towards females.
 
+## Inferential 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+femalesfish <- fisher.test(table1)
+femalesfish
+```
+
+ A Fisher’s Exact test was run and a p-value was given. The p-value came out to be 1e-08, which is also quite a small p-value. This means that these results are not likely to occur by chance and that there is a statistically significant result.	The odds ratio above came out to be 1.9, meaning that the females that got covid by taking the vaccine were less likely to contract covid than those who took the placebo. The odds of getting covid while taking the vaccine is 2:1.
+ 
+```{r}
+effect <- femalesfish$p.value/(femalesfish$p.value +1)
+effectivenessfemales = femalesfish$estimate/(femalesfish$estimate +1)*100
+print(effectivenessfemales)
+```
+
+```{r}
+low=(femalesfish$conf.int[1]/(femalesfish$conf.int[1] +1))*100
+hi=(femalesfish$conf.int[2]/(femalesfish$conf.int[2] +1))*100
+options(digits=2)
+```
+ 
 ## LGBTQ
 
 
