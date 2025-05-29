@@ -226,6 +226,12 @@ low=(lgbtqfish$conf.int[1]/(lgbtqfish$conf.int[1] +1))*100
 hi=(lgbtqfish$conf.int[2]/(lgbtqfish$conf.int[2] +1))*100
 options(digits=2)
 ```
+
+### Effectiveness Confidence Interval `r low`  to `r hi`
+
+Shown above is the effectiveness for the covid-19 vaccine for the gays. If the effectiveness is exactly 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval as low as 69%-89.88% hi, I can conclude that the vaccine is ineffective in protecting the gays from getting covid-19.
+	The odds ratio essentially shows how effective the vaccine is. The odds ratio for the gays is 81, with an effectiveness confidence interval of 69-89.8%, meaning that the vaccine is not effective in protecting the gays from getting covid-19.
+	
   
 ## Druggies
 
