@@ -264,8 +264,36 @@ colPerc(table1)
 
   The numerical results for the drug users shows the percentages of drug users who got covid while taking the vaccine and drug users who got covid while taking the placebo. It shows that 8.3% of the drug users who got covid took the placebo. Whereas 91.7% of the drug users who got covid took the vaccine. This comes to show that the vaccine is ineffective towards the drug users at preventing the contraction of covid-19.
   
+### Inferential Descriptive Results
 
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+drugUserfish <- fisher.test(table1)
+drugUserfish
+```
+
+The results of the Chi-Squared test reveal a highly significant finding, with a P value of 3e-12 considerably smaller than the commonly used threshold of 0.05. This small P value suggests a significant difference in the data and these results are not likely to occur by chance and that there is a statistically significant result.The null hypothesis is rejected in favor of the alternative hypothesis. Additionally, the Chi-Squared statistic, standing at 35, surpasses the degrees of freedom (one) for this dataset. In this group, the likelihood of an unvaccinated individual contracting Covid is approximately 1 in 8.The vaccine is ineffective in preventing the likelihood of getting covid in individuals who identify as drug users.
+The odds ratio above came out to be 0.087, meaning that those drug users that took the vaccine were very likely to contract covid than those who took the placebo. The odds of getting covid-19 while taking the vaccine is 0.6:3.3, meaning there is a big chance at contracting covid while taking the vaccine for the drug users.
+
+```{r}
+effect <- drugUserfish$p.value/(drugUserfish$p.value +1)
+effectivenessdrug= drugUserfish$estimate/(drugUserfish$estimate +1)*100
+print(effectivenessdrug)
+```
+
+```{r}
+low=(drugUserfish$conf.int[1]/(drugUserfish$conf.int[1] +1))*100
+hi=(drugUserfish$conf.int[2]/(drugUserfish$conf.int[2] +1))*100
+options(digits=2)
+```
+
+### Effectiveness Confidence Interval `r low`  to `r hi`
+
+  We can appreciate the effectiveness for the covid-19 vaccine for the drug users. If the effectiveness is even as 65%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 2.65%-17.86% as hi, I can conclude that the vaccine is ineffective in protecting the drug users from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the drug users is 8. If we put everything together, we find that the vaccine is not effective in protecting the drug users from getting covid-19.
 
 # Overall Results and Conclusions
-
+The covid-19 vaccine was not effective in protecting both the gays and the drug users from contracting covid-19. However, the examination of the data for the Drug User group exposes the least favorable outcomes from the vaccine. Both percentage charts and bar charts highlight a higher likelihood of contracting Covid for drug users who receive the vaccine. The statistically significant differences, marked by small P-Values and high Chi-Squared statistics, lead to rejecting the Null Hypothesis. The vaccine proves ineffective in this group and appears to place them at an elevated risk, surpassing even the heightened risk observed in the LGBTQ category.Although, if you are a male or a female, the vaccine is shown to be effective towards preventing the contraction of covid-19. 
+The null hypothesis that there is no difference in taking the vaccine can be accepted to the categories that include the gays and the drug users. The alternative hypothesis, that the vaccine works and is effective can be accepted to the categories that include the males and the females.
+If you are a male or identify as gay it is not recommended to receive the vaccine. However, if you are a female or a drug user, the vaccine was reported to have been effective.The null that there is no difference in taking the vaccine can be accepted to the categories including men and gay individuals. the alternative, that the vaccine works and is effective, can be accepted for the gals(women,) and the people who used drugs.
 
