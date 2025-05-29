@@ -111,7 +111,7 @@ cat("\n","Condifence interval for Males: ",maleLow," to ",maleHigh)
 
 The confidence interval is >50% with a normal vaccine threshold of >60%. This confidence interval is more than adequate to show that this is a good vaccine for this group.
 
-## Effectiveness Confidence Interval `r low`  to `r hi`
+### Effectiveness Confidence Interval `r low`  to `r hi`
 
 The odds ratio essentially shows how effective the vaccine is. The odds ratio for the males is around 73.8, with an effectiveness confidence interval of low being  68.85-78.32% hi, meaning that the vaccine is effective in protecting males from getting covid-19.
 
@@ -134,7 +134,7 @@ basicCC + geom_bar(stat="identity", position = "dodge")
 
 This plot represents the population of females and their relationship to getting covid-19 by taking either the vaccine or the placebo. The plot shows that around 58% of females who got covid took the placebo. Whereas about 36% of females who got covid took the vaccine.  Therefore, more females who got covid took the placebo. This means that the vaccine seems to be effective for females in this dataset. Although, it seems to be more effective for males than females, since more females than males who contracted covid took the vaccine rather than the placebo.There were two plots that came out. The first plot shows two bars for the treatment, either the placebo or the vaccine. Along the x-axis was the amount of people there was, and along the y-axis shows the infected from covid, either placebo or vaccine. It shows the number of people infected from covid or from the placebo. The second plot also shows two bars for the treatments, either the placebo or the vaccine. It shows the percentage of people infected from covid or from the placebo.
 
-### Numerical results
+### Numerical Descriptive Results
 
 ```{r}
 table1 <- xtabs(~infected + treatment, data=female)
@@ -143,7 +143,7 @@ colPerc(table1)
 ```
 The numerical results for the females shows the percentages of females who got covid while taking the vaccine and males who got covid while taking the placebo. It shows that around 65% of the females who got covid took the placebo. Whereas only 35% of females who got covid took the vaccine. This comes to show that the vaccine is effective towards females.
 
-## Inferential 
+### Inferential Results 
 
 ```{r}
 chisq.test(table1)
@@ -165,6 +165,12 @@ low=(femalesfish$conf.int[1]/(femalesfish$conf.int[1] +1))*100
 hi=(femalesfish$conf.int[2]/(femalesfish$conf.int[2] +1))*100
 options(digits=2)
 ```
+ 
+### Effectiveness Confidence Interval `r low`  to `r hi`
+
+Shown above is the effectiveness for the covid-19 vaccine for females. If the effectiveness is above 60%, then the vaccine is shown to be effective. Based on the effectiveness confidence interval of low as 60%-70% hi, I can conclude that the vaccine is effective in protecting females from getting covid-19.The odds ratio essentially shows how effective the vaccine is. The odds ratio for the females is 65 with an effectiveness confidence interval of 59.8 to 69.9%, meaning that the vaccine is effective in protecting females from getting covid-19.
+
+
  
 ## LGBTQ
 
